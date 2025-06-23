@@ -1,18 +1,13 @@
-from transformers import MBartForConditionalGeneration, MBart50TokenizerFast
 import torch
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-def carregar_modelo():
-    print("Iniciando o carregamento do modelo mBART-large-50...")
-    print("Isso pode levar alguns minutos e consumir >2GB de RAM.")
-    
+def carregar_modelo(model_name="unicamp-dl/ptt5-base-portuguese-vocab"):
+    print("Carregando modelo e tokenizador...")
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"Usando dispositivo: {device}")
+    print(f"Dispositivo em uso: {device}")
 
-    modelo = MBartForConditionalGeneration.from_pretrained("facebook/mbart-large-50-many-to-many-mmt").to(device)
-    tokenizer = MBart50TokenizerFast.from_pretrained("facebook/mbart-large-50-many-to-many-mmt")
-    
-    tokenizer.src_lang = "pt_XX"
-    tokenizer.tgt_lang = "pt_XX"
-    
+    tokenizer = T5Tokenizer.from_pretrained(model_name)
+    model = T5ForConditionalGeneration.from_pretrained(model_name).to(device)
+
     print("Modelo carregado com sucesso!")
-    return modelo, tokenizer, device
+    return model, tokenizer, device
