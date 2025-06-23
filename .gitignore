@@ -1,0 +1,46 @@
+# Arquivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.log
+
+# Ambientes virtuais
+.env/
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter Notebooks Checkpoints
+.ipynb_checkpoints/
+
+# Cache e temporários
+.cache/
+*.tmp
+*.temp
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de entrada/saída
+texto_original.txt
+*.out
+*.result
+
+# Hugging Face e Transformers cache
+~/.cache/huggingface/
+~/.huggingface/
+
+# Arquivos de configuração ou credenciais
+*.env
+.env.*
+
+# VSCode settings (caso use)
+.vscode/
+
+# Arquivos gerados
+*.pdf
+*.docx
